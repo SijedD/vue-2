@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+}
+.logo{
+    text-align: center;
+}
+.header{
+    background: aqua;
+}
+
+.form{
+    text-align: center;
+}
+
+.Done{
+    position: absolute;
+    right: 0;
+    background: darksalmon;
+    height: 700px;
+    width: 600px;
+}
+
+.Do{
+    position: absolute;
+    right: 34%;
+    background: chartreuse;
+    height: 700px;
+    width: 600px;
+}
+
+.toDo{
+    position: absolute;
+    background: aquamarine;
+    height: 700px;
+    width: 600px;
+}
