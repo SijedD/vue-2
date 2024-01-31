@@ -9,6 +9,10 @@ let app = new Vue({
     },
     methods: {
         addTask(){
+            if(this.todo === ""){
+                alert("Введите значение")
+                return
+            }
             if (this.needDoList.length >=3 ){
                 alert("Больше 3 нельзя")
             }
