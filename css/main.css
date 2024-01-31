@@ -15,17 +15,19 @@ body{
 .Done{
     position: absolute;
     right: 0;
-    background: darksalmon;
+    background: aquamarine;
     height: 700px;
     width: 600px;
+    margin-right: 10px;
 }
 
 .Do{
     position: absolute;
     right: 34%;
-    background: chartreuse;
+    background: aquamarine;
     height: 700px;
     width: 600px;
+
 }
 
 .toDo{
@@ -34,3 +36,12 @@ body{
     height: 700px;
     width: 600px;
 }
+
+
+
+.Main{
+    margin: 10px;
+    background-color: aqua;
+    height: 739px;
+}
+

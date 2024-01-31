@@ -11,85 +11,10 @@
     <title>Product App</title>
 </head>
 <body>
-
-<div id="app">
-    <div class="header">
-        <div class="container">
-            <div class="logo">ToDo LIST</div>
-            <div class="form">
-                <label>
-                    <input type="text" v-model="todo">
-                </label>
-                <button v-on:click="addTask">Add a new task</button>
-            </div>
-        </div>
-    </div>
-
-<div class="container">
-        <div class="toDo">
-        <h2>
-            <span>TO DO</span>
-            <span class="mask-num">{{needDoList.length}}</span>
-        </h2>
-        <ul class="mask-list">
-            <div v-for="(detail, i) in needDoList " :key="i">
-                <span>№ {{ i+1 }}|</span>
-                <span>Дело: {{ detail }}</span>
-                <div>
-                    <input type="checkbox" v-on:click="schetRadio">Запланировал<br>
-                    <input type="checkbox" v-on:click="schetRadio">Подготовка<br>
-                    <input type="checkbox" v-on:click="schetRadio">Начал<br>
-                    <input type="checkbox" v-on:click="schetRadio">В процесе<br>
-                    <input type="checkbox" v-on:click="schetRadio">Сделал<br>
-                </div>
-
-            </div>
-        </ul>
-        </div>
-        <div class="DoClass">
-        <div class="Do">
-        <h2>
-            <span>Do</span>
-            <span class="mask-num">{{needDoListDo.length}}</span>
-        </h2>
-        <ul class="mask-list complete-list">
-            <div v-for="(detail, i) in needDoListDo " :key="i">
-
-                <span>№ {{ i+1 }}|</span>
-                <span>Дело: {{ detail }}</span>
-                <div>
-                    <input type="checkbox" v-on:click="schetRadioDo" checked>Запланировал<br>
-                    <input type="checkbox" v-on:click="schetRadioDo" checked>Подготовка<br>
-                    <input type="checkbox" v-on:click="schetRadioDo" checked>Начал<br>
-                    <input type="checkbox" v-on:click="schetRadioDo">В процесе<br>
-                    <input type="checkbox" v-on:click="schetRadioDo">Сделал<br>
-
-                </div>
-
-            </div>
-        </ul>
-        </div>
-        </div>
-        <div class="Done">
-            <h2>
-                <span>Done</span>
-                <span class="mask-num">{{needDoListDone.length}}</span>
-            </h2>
-            <div v-for="(detail, i) in needDoListDone " :key="i">
-                <span>№ {{ i+1 }}|</span>
-                <span>Дело: {{ detail }}</span>
-                    <div>
-                        <input type="checkbox"  checked>Запланировал<br>
-                        <input type="checkbox"  checked>Подготовка<br>
-                        <input type="checkbox"  checked>Начал<br>
-                        <input type="checkbox"  checked>В процесе<br>
-                        <input type="checkbox"  checked>Сделал<br>
-
-                    </div>
-            </div>
-        </div>
+<div class="Main">
+    <div id="app">
+        <vis></vis>
     </div>
 </div>
-
 </body>
 </html>
