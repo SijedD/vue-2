@@ -9,6 +9,7 @@ let app = new Vue({
     },
     methods: {
         addTask(){
+
             if(this.todo === ""){
                 alert("Введите значение")
                 return
@@ -17,7 +18,8 @@ let app = new Vue({
                 alert("Больше 3 нельзя")
             }
             else {
-            this.needDoList.push(this.todo);}
+            this.needDoList.push(this.todo);
+            this.todo = ""}
         },
         schetRadio() {
             if (this.needDoListDo.length >=5){
