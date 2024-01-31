@@ -29,7 +29,7 @@
         <div class="toDo">
         <h2>
             <span>TO DO</span>
-            <span class="mask-num">10</span>
+            <span class="mask-num">{{needDoList.length}}</span>
         </h2>
         <ul class="mask-list">
             <div v-for="(detail, i) in needDoList " :key="i">
@@ -50,10 +50,11 @@
         <div class="Do">
         <h2>
             <span>Do</span>
-            <span class="mask-num">10</span>
+            <span class="mask-num">{{needDoListDo.length}}</span>
         </h2>
         <ul class="mask-list complete-list">
             <div v-for="(detail, i) in needDoListDo " :key="i">
+
                 <span>№ {{ i+1 }}|</span>
                 <span>Дело: {{ detail }}</span>
                 <div>
@@ -72,7 +73,7 @@
         <div class="Done">
             <h2>
                 <span>Done</span>
-                <span class="mask-num">10</span>
+                <span class="mask-num">{{needDoListDone.length}}</span>
             </h2>
             <div v-for="(detail, i) in needDoListDone " :key="i">
                 <span>№ {{ i+1 }}|</span>
