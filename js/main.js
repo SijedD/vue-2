@@ -4,7 +4,8 @@ let app = new Vue({
         todo: "",
         needDoList: [],
         needDoListDo: [],
-        needDoListDone:[]
+        needDoListDone:[],
+        schetchik: 0
     },
     methods: {
         addTask(){
@@ -21,6 +22,17 @@ let app = new Vue({
                 this.needDoListDo.splice(this.needDoListDo[element], 1)
             }
             this.needDoListDone.push(this.todo)
+        },
+        schetRadio() {
+            this.schetchik += 1
+            console.log(this.schetchik)
+            if(this.schetchik >= 3){
+                for(let element in this.needDoList) {
+                    this.needDoList.splice(this.needDoList[element], 1)
+                }
+                this.needDoListDo.push(this.todo)
+                this.schetchik = 0
+            }
         }
     }})
 
