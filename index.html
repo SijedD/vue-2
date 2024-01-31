@@ -41,10 +41,8 @@
                     <input type="checkbox" v-on:click="schetRadio">
                     <input type="checkbox" v-on:click="schetRadio">
                     <input type="checkbox" v-on:click="schetRadio">
-                    <p>{{schetchik}}</p>
-                    <span></span>
                 </div>
-                <button class="btn-remove">Remove</button>
+
             </div>
         </ul>
         </div>
@@ -59,14 +57,14 @@
                 <span>№ {{ i+1 }}|</span>
                 <span>Дело: {{ detail }}</span>
                 <div>
-                    <input type="checkbox" v-on:change="doneCheck">
-                    <input type="checkbox" v-on:change="doneCheck">
-                    <input type="checkbox" v-on:change="doneCheck">
-                    <input type="checkbox" v-on:change="doneCheck">
-                    <input type="checkbox" v-on:change="doneCheck">
-                    <span></span>
+                    <input type="checkbox" v-on:click="schetRadioDo" checked>
+                    <input type="checkbox" v-on:click="schetRadioDo" checked>
+                    <input type="checkbox" v-on:click="schetRadioDo" checked>
+                    <input type="checkbox" v-on:click="schetRadioDo">
+                    <input type="checkbox" v-on:click="schetRadioDo">
+
                 </div>
-                <button class="btn-remove">Remove</button>
+
             </div>
         </ul>
         </div>
@@ -80,10 +78,13 @@
                 <span>№ {{ i+1 }}|</span>
                 <span>Дело: {{ detail }}</span>
                     <div>
-                        <input type="checkbox" checked>
-                        <span></span>
+                        <input type="checkbox"  checked>
+                        <input type="checkbox"  checked>
+                        <input type="checkbox"  checked>
+                        <input type="checkbox"  checked>
+                        <input type="checkbox"  checked>
+
                     </div>
-                    <button class="btn-remove">Remove</button>
             </div>
         </div>
     </div>
