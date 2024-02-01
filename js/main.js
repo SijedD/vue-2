@@ -1,137 +1,49 @@
-
-Vue.component('vis',{
-    template: `
-<div>
-    <div class="header">
-        <div class="container">
-            <div class="logo">ToDo LIST</div>
-            <div class="form">
-                <label>
-                    <input type="text" v-model="todo">
-                </label>
-                <button v-on:click="addTask">Add a new task</button>
-            </div>
-        </div>
-    </div>
-    
-    <div class="container">
-        <div class="toDo">
-            <h2>
-                <span>To Do</span>
-                <span class="mask-num">{{needDoList.length}}</span>
-            </h2>
-            <ul class="mask-list">
-                <div v-for="(detail, i) in needDoList " :key="i">
-                    <span>№ {{ i + 1 }}|</span>
-                    <span>Дело: {{ detail }}</span>
-                    <div>
-                        <input type="checkbox" v-on:click="Radio">Запланировал<br>
-                        <input type="checkbox" v-on:click="Radio">Подготовка<br>
-                        <input type="checkbox" v-on:click="Radio">Начал<br>
-                        <input type="checkbox" v-on:click="Radio">В процесе<br>
-                        <input type="checkbox" v-on:click="Radio">Сделал<br>
-                    </div>
-                </div>
-            </ul>
-        </div>
-        <div class="DoClass">
-            <div class="Do">
-                <h2>
-                    <span>Do</span>
-                    <span class="mask-num">{{needDoListDo.length}}</span>
-
-                </h2>
-                <ul class="complete-list">
-
-                    <div v-for="(detail, i) in needDoListDo " :key="i">
-
-                        <span>№ {{ i + 1 }}|</span>
-                        <span>Дело: {{ detail }}</span>
-                        <span>Дело: {{ needDoListDo }}</span>
-                        <div>
-                            <input type="checkbox" v-on:click="RadioDo" checked>Запланировал<br>
-                            <input type="checkbox" v-on:click="RadioDo" checked>Подготовка<br>
-                            <input type="checkbox" v-on:click="RadioDo" checked>Начал<br>
-                            <input type="checkbox" v-on:click="RadioDo">В процесе<br>
-                            <input type="checkbox" v-on:click="RadioDo">Сделал<br>
-
-                        </div>
-
-                    </div>
-                </ul>
-            </div>
-        </div>
-        <div class="Done">
-            <h2>
-                <span>Done</span>
-                <span class="mask-num">{{needDoListDone.length}}</span>
-            </h2>
-            <div v-for="(detail, i) in needDoListDone " :key="i">
-                <span>№ {{ i + 1 }}|</span>
-                <span>Дело: {{ detail }}</span>
-                <div>
-                    <input type="checkbox" checked>Запланировал<br>
-                    <input type="checkbox" checked>Подготовка<br>
-                    <input type="checkbox" checked>Начал<br>
-                    <input type="checkbox" checked>В процесе<br>
-                    <input type="checkbox" checked>Сделал<br>
-
-                </div>
-            </div>
-        </div>
-    </div></div>
-    `,
+new Vue({
+    el: '#app',
     data() {
-        return{
-            todo: '',
-            needDoList: [],
-            needDoListDo: [],
-            needDoListDone:[],
-            schetchik: 0,
+        return {
+            column1: [],
+            column2: [],
+            column3: [],
+            newCardTitle: '',
+            newItemText: '', // добавляемое пользователем значение текста элемента// добавляемое пользователем значение заголовка
         }
     },
-    methods:{
-        addTask(){
+    methods: {
+        handleCardPosition(card) {
+            const totalItems = card.items.length;
+            const completedItems = card.items.filter(item => item.completed).length;
 
-            if(this.todo === ""){
-                alert("Введите значение")
-                return
-            }
-            if (this.needDoList.length >=3 ){
-                alert("Больше 3 нельзя")
-            }
-            else {
-                this.needDoList.push({title: this.todo});
-                this.todo = '';
+            if (completedItems / totalItems > 0.5 && this.column1.includes(card)) {
+                this.column1.splice(this.column1.indexOf(card), 1);
+                this.column2.push(card);
+            } else if (completedItems / totalItems === 1 && this.column2.includes(card)) {
+                this.column2.splice(this.column2.indexOf(card), 1);
+                this.column3.push(card);
+                card.completedDate = new Date().toLocaleString(); // добавляем дату и время завершения
             }
         },
-        Radio(index) {
-            if (this.needDoListDo.length >=5){
-                alert("Больше 5 нельзя")
-                return
-            }
-            else {
-                this.schetchik += 1;
-                if (this.schetchik >=3 && this.schetchik < 5){
-                    const need1 = this.needDoList.splice(index, 1);
-                    this.needDoListDo.push(...need1);
-                    this.schetchik = 0
-                }}
+        addCard() {
+            if (this.newCardTitle !== '' && this.column1.length < 3) {
+                const newCard = {
+                    id: Date.now(),
+                    title: this.newCardTitle,
+                    items: this.newItemText.split('\n').filter(item => item.trim() !== '').map(item => ({ text: item, completed: false }))
+                };
+                if (this.newCardTitle !== '' && newCard.items.length >= 3 && newCard.items.length <= 5) {
+                    this.column1.push(newCard);
+                }
+                else alert("Введите правильные значения!!!")
+                {
 
-        },
-        RadioDo(i){
-            this.schetchik += 1
-            if (this.schetchik >= 2){
-                this.schetchik = 0
-                const need2 = this.needDoListDo.splice(i, 1)
-                this.needDoListDone.push(...need2)
+                }
+                this.handleCardPosition(newCard);
+                this.newCardTitle = '';
+                this.newItemText = '';
             }
-        }
+        },
+
+
 
     }
-})
-
-
-let app = new Vue({
-    el: '#app',
 })

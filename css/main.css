@@ -1,47 +1,16 @@
-body{
-    margin: 0;
-}
-.logo{
-    text-align: center;
-}
-.header{
+.column {
+    width: 33.33%;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
     background: aqua;
 }
-
-.form{
-    text-align: center;
+.card {
+    background: gold;
+    border: 10px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
 }
-
-.Done{
-    position: absolute;
-    right: 0;
-    background: aquamarine;
-    height: 700px;
-    width: 600px;
-    margin-right: 10px;
-}
-
-.Do{
-    position: absolute;
-    right: 34%;
-    background: aquamarine;
-    height: 700px;
-    width: 600px;
-
-}
-
-.toDo{
-    position: absolute;
-    background: aquamarine;
-    height: 700px;
-    width: 600px;
-}
-
-
-
-.Main{
-    margin: 10px;
+.completed {
     background-color: aqua;
-    height: 739px;
 }
-
