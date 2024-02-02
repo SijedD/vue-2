@@ -3,22 +3,69 @@
     float: left;
     padding: 10px;
     box-sizing: border-box;
-    background: aqua;
+    background: #F5F5DC;
 }
 .card {
-    background: gold;
-    border: 10px solid #ccc;
+    background: forestgreen;
+    border: 10px solid #FFE4C4;
     padding: 10px;
     margin-bottom: 10px;
 }
 .completed {
-    background-color: aqua;
+    background-color: #F5F5DC;
+    text-decoration: line-through;
 }
 
 .Form1{
     padding: 10px;
     text-align: center;
-    background: gold;
+    background: forestgreen;
     height: 50px;
 }
 
+/* Модальный заголовок */
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Модальное тело */
+.modal-body {padding: 2px 16px;}
+
+
+/* Модальное содержание */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Добавить анимация */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatebottom {
+    from {top: 300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+.pupupu{
+    text-align: center;
+}
+
+.myBtn{
+
+    margin-left: 46%;
+}
+
+close{
+    animation-name: animatebottom;
+}
